@@ -8,10 +8,10 @@ class App extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-8 col-sm-8 col-xs-6 left">
                         <Playground/>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 col-sm-4 col-xs-6 right">
                         <Scoreboard/>
                     </div>
                 </div>
