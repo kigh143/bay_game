@@ -19,15 +19,23 @@ export class Playground extends React.Component {
         let size = this.state.cell_size * cols;
         ctx.clearRect(0,0,size,size);
         let img = this.refs.img;
+        let img2 = this.refs.img2;
 
         for( let i=0; i<rows; i++){
             for( let j=0; j<cols; j++){
                 var x =i*this.state.cell_size;
                 var y =j*this.state.cell_size;
-                ctx.rect(x,y,this.state.cell_size,this.state.cell_size);
-                //ctx.drawImage(img, x,y);
+                let num = Math.floor(Math.random() * 10);
+                if( (num%2) == 0 ){
+                  ctx.rect(x,y,this.state.cell_size,this.state.cell_size);
+                }else{
+                    ctx.drawImage(img, x,y);
+                }
             }
         }
+
+        ctx.drawImage(img2, 160,160);
+
 
         ctx.stroke();
     }
@@ -56,8 +64,9 @@ export class Playground extends React.Component {
                         <button onClick={this.createBoard } className="btn btn-primary"> start game</button>
                     </div>
                 </div>
+                <span>Game charaters : </span>
                 <img ref="img"  src={"../../imgs/rat.png"}  className="img"/>
-                <img ref="img"  src={"../../imgs/cat.png"}  className="img"/>
+                <img ref="img2"  src={"../../imgs/cat.png"}  className="img"/>
                 <div className="canvas">
                     <canvas ref="canvas" width={this.state.size} height={this.state.size}></canvas>
                 </div>

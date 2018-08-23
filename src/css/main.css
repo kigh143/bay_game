@@ -23,6 +23,7 @@
 
 .container {
   margin: 10px auto;
+  position: fixed;
 }
 
 .canvas {

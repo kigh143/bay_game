@@ -5,9 +5,8 @@ export class Scoreboard extends React.Component {
         return (
             <div className="scoreboard">
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Score Board</li>
-                    <li className="list-group-item">Steps taken : 696</li>
-                    <li className="list-group-item">Time taken : 6:50:20</li>
+                    <li className="list-group-item"><b>Score Board</b></li>
+                    <li className="list-group-item">Steps taken : 0</li>
                 </ul>
             </div>
         );
