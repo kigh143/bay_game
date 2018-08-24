@@ -20,16 +20,28 @@ export class Playground extends React.Component {
         ctx.clearRect(0,0,size,size);
         let img = this.refs.img;
         let img2 = this.refs.img2;
-
+        let counter  = 0;
         for( let i=0; i<rows; i++){
+           counter++; 
+
             for( let j=0; j<cols; j++){
+                counter++; 
+
                 var x =i*this.state.cell_size;
                 var y =j*this.state.cell_size;
                 let num = Math.floor(Math.random() * 10);
                 if( (num%2) == 0 ){
                   ctx.rect(x,y,this.state.cell_size,this.state.cell_size);
                 }else{
-                    ctx.drawImage(img, x,y);
+                    
+                   let rand = Math.floor(Math.random() * 10);
+                   
+                    if(  (rand%2) == 0 ){
+                        ctx.drawImage(img, x,y);
+                    }else{
+                        ctx.rect(x,y,this.state.cell_size,this.state.cell_size);
+                    }
+                    
                 }
             }
         }
