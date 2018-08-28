@@ -7,7 +7,8 @@ export class Playground extends React.Component {
         this.state = {
             boradSize: 0,
             cell_size:40,
-            size:1000
+            size:1000,
+            cont:undefined
         }
     }
 
@@ -22,6 +23,7 @@ export class Playground extends React.Component {
         window.addEventListener("keypress", this.movePlayer);
 
         var ctx = c_canvas.getContext("2d");
+        this.setState({cont:ctx});
 
         let size = this.state.cell_size * cols;
         ctx.clearRect(0,0,size,size);
@@ -58,16 +60,23 @@ export class Playground extends React.Component {
 
 
     movePlayer = (event) => {
-        console.log( event ); 
+        
+        let sprite_total = parseInt(this.state.boradSize);
+        let yPosition = Math.floor(Math.random() * sprite_total)*this.state.cell_size;
+        let xPosition = Math.floor(Math.random() * sprite_total)*this.state.cell_size;
+        this.state.cont.fillStyle="orange";
+        
         if(event.keyCode == 100){
-
-        } else if(event.keyCode == 1){
-
-        } else if(event.keyCode == 100){
-
-        } else if(event.keyCode == 100){
-
+            xPosition -= 40;
+        } else if(event.keyCode == 115){
+            yPosition += 40;
+        } else if(event.keyCode == 120){
+            xPosition += 40;
+        } else if(event.keyCode == 114){
+            yPosition -= 40;
         }
+        this.state.cont.clearRect(0, 0, this.state.cell_size, this.state.cell_size)
+        this.state.cont.fillRect(xPosition, yPosition, this.state.cell_size, this.state.cell_size);
 
     }
 
