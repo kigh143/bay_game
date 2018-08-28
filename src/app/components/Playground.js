@@ -6,56 +6,12 @@ export class Playground extends React.Component {
         super();
         this.state = {
             boradSize: 0,
-            cell_size:40,
-            size:1000
         }
     }
     createBoard = () => {
-        var cols = this.state.boradSize;
-        var rows = this.state.boradSize;
-        var c_canvas = this.refs.canvas;
-        var ctx = c_canvas.getContext("2d");
 
-        let size = this.state.cell_size * cols;
-        ctx.clearRect(0,0,size,size);
-        let img = this.refs.img;
-        let img2 = this.refs.img2;
-        let counter  = 0;
-        for( let i=0; i<rows; i++){
-           counter++; 
-
-            for( let j=0; j<cols; j++){
-                counter++; 
-
-                var x =i*this.state.cell_size;
-                var y =j*this.state.cell_size;
-                let num = Math.floor(Math.random() * 10);
-                if( (num%2) == 0 ){
-                  ctx.rect(x,y,this.state.cell_size,this.state.cell_size);
-                }else{
-                    
-                   let rand = Math.floor(Math.random() * 10);
-                   
-                    if(  (rand%2) == 0 ){
-                        ctx.drawImage(img, x,y);
-                    }else{
-                        ctx.rect(x,y,this.state.cell_size,this.state.cell_size);
-                    }
-                    
-                }
-            }
-        }
-
-        ctx.drawImage(img2, 160,160);
-
-
-        ctx.stroke();
     }
 
-    changevalue= (e) => {
-        let value = parseInt(e.target.value);
-        this.setState({boradSize:value});
-    }
 
     render (){
         return (
